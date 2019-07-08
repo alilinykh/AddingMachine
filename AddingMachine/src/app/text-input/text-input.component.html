@@ -1,3 +1,12 @@
-<pre>Output goes here. {{log}}</pre>
-<hr />
-<p>text-input goes here! You need to change this to a text input field.</p>
+<pre>{{value}}</pre>
+<p>Enter values bellow: </p>
+
+
+   <input #box (keyup.enter) = "onEnter(box.value)">
+   <!-- <p>{{value}}</p> -->
+
+
+<!-- <p>text-input goes here! You need to change this to a text input field.</p>
+ -->
+<!-- <h1>{{title}}</h1>
+<text-input></text-input> -->

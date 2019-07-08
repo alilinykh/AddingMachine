@@ -1,6 +1,6 @@
 class Evaluator {
-    ops: string[];
-    vals: number[];
+    ops: string[] = [];
+    vals: number[] = [];
 
     constructor() {}
 
@@ -14,6 +14,7 @@ class Evaluator {
             } else if (token === '/') { this.ops.push(token);
             } else if (token === 'sqrt') { this.ops.push(token);
             } else if (token === ')') { this.ops.push(token);
+
                                         const op: string  = this.ops.pop();
                                         let v: number = this.vals.pop();
                                         if (op === '+') {v = this.vals.pop() + v;

@@ -13,9 +13,16 @@ export class TextInputComponent implements OnInit {
   constructor() { }
 
   value: any = '';
-
-  onEnter(value: string) {this.value = this.run(value); }
-
+  history: any;
+  onEnter(value: string) {
+    if (this.history == null) {
+      this.value = this.run(value);
+      this.history = this.run(value) + '\n';
+    } else {
+      this.value = this.history + this.run(value);
+      this.history += this.run(value) + '\n';
+    }
+  }
 
   run(toEvaluate: string) {
     const tokens: string[] = toEvaluate.split(' ');
@@ -41,7 +48,7 @@ export class TextInputComponent implements OnInit {
             this.vals.push(Number.parseFloat(token));
         }
     }
-    return this.vals.pop();
+    return toEvaluate + '\n>> ' + this.vals.pop();
 }
 
 
